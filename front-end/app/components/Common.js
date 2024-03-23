@@ -13,7 +13,7 @@ const SectionHeader = ({ ...props }) => {
   return (
     <p
       {...props}
-      className={`${props.className} text-black text-[21px] md:text-[3rem] leading-tight font-[550]`}
+      className={`${props.className} text-dmsans text-black text-[21px] md:text-[3rem] leading-tight font-[550]`}
     />
   );
 };
@@ -31,7 +31,7 @@ const ParagraphText = ({ ...props }) => {
   return (
     <p
       {...props}
-      className={` ${props.className} text-black text-[0.75rem] md:text-[1rem] leading-normal`}
+      className={` ${props.className} text-dmsans text-black text-[0.75rem] md:text-[1rem] leading-normal`}
     />
   );
 };
