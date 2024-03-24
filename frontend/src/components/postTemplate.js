@@ -1,47 +1,10 @@
+import React from "react";
 import { ParagraphText, SectionHeader } from "../components/Common";
-import PostTemplate from "../components/postTemplate";
 // import Link from "next/link";
 
-export default function Post() {
+const PostTemplate = (props) => {
   return (
-    <main className="min-h-screen flex-col  p-[5%] bg-white">
-      {/* Header */}
-      <div className="flex justify-between">
-        {/* left */}
-        <SectionHeader className="text-dmsans-italic uppercase text-black font-bold ">
-          Chomp
-        </SectionHeader>
-        {/* right */}
-        <div>
-          <img src="./images/user.svg"></img>
-        </div>
-      </div>
-      {/* Subheader*/}
-      <div className="flex justify-between mt-8">
-        {/* left */}
-        <a href="/">
-          {" "}
-          <div className="flex mr-10">
-            <img src="./images/left.svg"></img>
-            <ParagraphText className="text-dmsans uppercase font-bold ml-2">
-              back
-            </ParagraphText>
-          </div>
-        </a>
-
-        {/* center */}
-        <div>
-          <ParagraphText className="text-dmsans uppercase">
-            Closes in 3 days
-          </ParagraphText>
-        </div>
-        {/* right */}
-        <div>
-          <ParagraphText className="text-dmsans uppercase">
-            360 responses
-          </ParagraphText>
-        </div>
-      </div>
+    <div className="mt-3">
       {/* Post Section*/}
       <div className="mt-3">
         <ParagraphText className="!text-3xl leading-[115%]">
@@ -121,6 +84,8 @@ export default function Post() {
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
-}
+};
+
+export default PostTemplate;

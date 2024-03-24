@@ -42,14 +42,14 @@ export default function Home() {
           {/* User + location */}
           <div className="mt-5 flex justify-between">
             {/* left */}
-            <div className="flex">
+            <div className="flex flex-row w-[100%]">
               <ParagraphText className=" text-slate-400 mr-1">
                 By BabyBottom
               </ParagraphText>
               <img src="./images/star.svg"></img>
             </div>
             {/* right */}
-            <div className="flex">
+            <div className="flex flex-row w-[100%] justify-end">
               <img className="mr-2" src="./images/location.svg"></img>
               <ParagraphText className="text-slate-400">
                 Granville Island
@@ -103,7 +103,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="bg-[#F9F9F9] w-full">
+      <div className="bg-[#F9F9F9] w-full h-full mb-20">
         {/* Second post  */}
         <div className="">
           <div className="px-[5%] py-[1.5%]">
@@ -171,7 +171,7 @@ export default function Home() {
             {/* left */}
             <div className="flex">
               <ParagraphText className="text-slate-400 mr-1">
-                By BabyBottom
+                By Milk113
               </ParagraphText>
               <img src="./images/star.svg"></img>
             </div>
@@ -225,6 +225,39 @@ export default function Home() {
               <img src="./images/message-circle.svg"></img>
               <ParagraphText className="text-md ml-1">12</ParagraphText>
               <img className="ml-5 mr-2" src="./images/share.svg"></img>
+            </div>
+          </div>
+        </div>
+        {/* Fourth Post */}
+        <div className="mt-1 px-[5%] mt-10">
+          {" "}
+          <div className="flex justify-between items-center">
+            <ParagraphText className="text-xl leading-[115%] text-start">
+              Something you're proud of this week
+            </ParagraphText>
+            <a href="/post">
+              {" "}
+              <div className="flex items-center justify-between">
+                <img
+                  className="w-[65px]"
+                  src="./images/chevron-right-black.svg"
+                ></img>
+              </div>
+            </a>
+          </div>
+          {/* pics */}
+          <div className="flex">
+            <div className="p-2">
+              <img
+                className="min-h-[50px] max-h-[200px] rounded-lg"
+                src="./images/vancouver.jpg"
+              ></img>
+            </div>
+            <div className="p-2">
+              <img
+                className="min-h-[50px] max-h-[200px] rounded-lg"
+                src="./images/bigway.jpg"
+              ></img>
             </div>
           </div>
         </div>
