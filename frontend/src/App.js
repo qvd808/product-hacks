@@ -7,6 +7,7 @@ import Search from "./pages/search";
 import Profile from "./pages/profile";
 import BottomNavigationBar from "./BottomNavigationBar";
 import Test from "./pages/Test";
+import Notification from "./pages/Notification";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/search" element={<Search />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/test" element={<Test />} />
+            <Route path="/notification" element={<Notification />} />
           </Routes>
         </main>
         <BottomNavigationBar></BottomNavigationBar>
