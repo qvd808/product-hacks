@@ -1,5 +1,6 @@
 import { Inter, DM_Sans } from "next/font/google";
 import "./globals.css";
+import BottomNavigationBar from "./BottomNavigationBar";
 
 const inter = Inter({ subsets: ["latin"] });
 const dm_sans = DM_Sans({
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={dm_sans.variable}>{children}</body>
+      <BottomNavigationBar />
     </html>
   );
 }
