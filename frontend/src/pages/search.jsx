@@ -24,12 +24,12 @@ export default function Search() {
       </div>
       {/*  Subheader*/}
       <div className="mt-5">
-        <ParagraphText className="!text-lg uppercase font-bold text-start">
+        <ParagraphText className="!text-lg uppercase font-black text-start">
           Discover Prompts
         </ParagraphText>
       </div>
       {/* Search Section */}
-      <div className="w-[100%] mt-5  bg-slate-200">
+      <div className="w-[100%] mt-2 bg-[#F1F1F1] flex p-2 rounded-md">
         {" "}
         <img className="" src="./images/search-grey.svg"></img>
         <input
@@ -39,6 +39,35 @@ export default function Search() {
           onChange={handleInputChange}
           //   placeholder="Enter text..."
         />
+      </div>
+      {/* Ongoing Header */}
+      <div className="mt-5">
+        {" "}
+        <ParagraphText className="!text-[14px] uppercase text-start ">
+          Ongoing
+        </ParagraphText>
+      </div>
+      {/* Prompt Card */}
+      <div className="flex border-t-2 border-b-2 mt-1">
+        <div className="flex mr-3">
+          <img
+            className="w-[20pt] self-start"
+            src="./images/arrow-up-circle.svg"
+          ></img>
+          <ParagraphText className="!text-[11pt] text-bold self-start mt-1">
+            12
+          </ParagraphText>
+        </div>
+
+        <div className=" flex flex-col">
+          {" "}
+          <ParagraphText className="!text-lg text-start">
+            Locking in
+          </ParagraphText>
+          <ParagraphText className="!text-md text-start">
+            Closes in 4 days
+          </ParagraphText>
+        </div>
       </div>
     </div>
   );
