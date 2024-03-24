@@ -20,7 +20,7 @@ export default function Post2() {
   }, []);
 
   return (
-    <main className="min-h-screen flex-col  p-[5%] bg-white">
+    <main className="min-h-screen flex-col  p-[5%] bg-white mb-20">
       {/* Header */}
       <div className="flex justify-between">
         {/* left */}
@@ -61,7 +61,7 @@ export default function Post2() {
       {/* Post Section*/}
       <div className="mt-3">
         <ParagraphText className="!text-3xl text-start leading-[115%]">
-        Let the yearly flying ant posts begin
+          Let the yearly flying ant posts begin
         </ParagraphText>
         {/* Post Sort */}
         <div className="mt-[18px] flex justify-between">
@@ -82,9 +82,11 @@ export default function Post2() {
       {prompts.map((singlePost) => {
         return (
           <div>
-            {singlePost.posts.sort((a,b) => (a.vote < b.vote)).map((post, index) =>
-              PostTemplate({ item: post, index, singlePost })
-            )}
+            {singlePost.posts
+              .sort((a, b) => a.vote < b.vote)
+              .map((post, index) =>
+                PostTemplate({ item: post, index, singlePost })
+              )}
           </div>
         );
       })}
