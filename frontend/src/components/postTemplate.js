@@ -5,15 +5,14 @@ import { ParagraphText, SectionHeader } from "../components/Common";
 const PostTemplate = (props) => {
   console.log(props);
   return (
-    <div className="mt-3">
+    <div className="mt-3 " key={props.index}>
       {/* Post Section*/}
-
       {/* User + location */}
       <div className="mt-5 flex justify-between">
         {/* left */}
         <div className="flex">
           <ParagraphText className="text-slate-400 mr-1">
-            {props.user}
+            {props.item.user}
           </ParagraphText>
           <img src="./images/star.svg"></img>
         </div>
@@ -31,7 +30,7 @@ const PostTemplate = (props) => {
         <div className="relative bg-slate-200 min-h-52 max-h-96 md:max-h-[1000px] rounded-md">
           <img
             className="w-full min-h-52 max-h-96 md:max-h-[1000px] rounded-lg"
-            src={props.image}
+            src={props.item.image}
           ></img>
           <div class="absolute top-0 right-0 w-1/4 h-full bg-gradient-to-r from-transparent to-black opacity-40"></div>
           {/* top icon */}
