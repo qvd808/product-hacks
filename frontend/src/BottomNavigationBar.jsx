@@ -3,12 +3,20 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ParagraphText, SectionHeader } from "./components/Common";
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import { API } from "./const";
 
 const BottomNavigationBar = () => {
   const locat = useLocation();
   const [isOpen, setIsOpen] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [caption, setCaption] = useState("");
+  const [location, setLocation] = useState("");
 
   const openPopup = () => {
+    // console.log(searchParams.get("id"));
+    // console.log(searchParams.get("topic"));
+
     setIsOpen(true);
   };
 
@@ -25,10 +33,50 @@ const BottomNavigationBar = () => {
     event.preventDefault();
     // You can perform any necessary actions with the selected file here
     console.log(selectedFile);
-  };
+    const formData = new FormData();
+    formData.append("file", selectedFile);
 
-  const [caption, setCaption] = useState("");
-  const [location, setLocation] = useState("");
+    // formData.append("caption", caption);
+    // formData.append("location", location);
+    // formData.append("user", "user-1");
+    // formData.append("id", searchParams.get("id"));
+    // formData.append("topic", searchParams.get("topic"));
+
+    fetch(API + "/file", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        fetch(API + "/post", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            caption: caption,
+            location: location,
+            user: "user-1",
+            id: searchParams.get("id"),
+            topic: searchParams.get("topic"),
+            image: data,
+          }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            window.location.reload();
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      })
+
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+
+    // window.location.reload();
+  };
 
   const handleCaptionChange = (event) => {
     setCaption(event.target.value);

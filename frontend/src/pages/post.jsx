@@ -3,24 +3,30 @@ import { ParagraphText, SectionHeader } from "../components/Common";
 import PostTemplate from "../components/postTemplate";
 import PromptTemplate from "../components/promptTemplate";
 import { API, data } from "../const";
+import { useSearchParams } from "react-router-dom";
 // import Link from "next/link";
 
+
 export default function Post() {
+  
   const [prompts, setPrompts] = useState([]);
+  let [searchParams, setSearchParams] = useSearchParams();
 
   const getData = async () => {
     const response = await fetch(API + "/prompt");
     const data = await response.json();
     setPrompts(data);
+    setPrompts(data.filter((prompt) => prompt.id === "prompt-1"));
     // console.log(prompts);
   };
 
   useEffect(() => {
     getData();
+    setSearchParams({ id: "prompt-1", "topic": "The craziest things you can do with $5.50 CAD."});
   }, []);
 
   return (
-    <main className=" min-h-screen flex-col  p-[5%] bg-white mb-32">
+    <main className=" min-h-screen flex-col  p-[5%] bg-white mb-20">
       {/* Header */}
       <div className="flex justify-between">
         {/* left */}
@@ -87,11 +93,9 @@ export default function Post() {
       {prompts.map((singlePost) => {
         return (
           <div>
-            {singlePost.posts
-              .sort((a, b) => a.vote < b.vote)
-              .map((post, index) =>
-                PostTemplate({ item: post, index, singlePost })
-              )}
+            {singlePost.posts.sort((a,b) => (a.vote < b.vote)).map((post, index) =>
+              PostTemplate({ item: post, index, singlePost })
+            )}
           </div>
         );
       })}
