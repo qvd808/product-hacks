@@ -1,9 +1,24 @@
+import { useEffect, useState } from "react";
 import { ParagraphText, SectionHeader } from "../components/Common";
 import PostTemplate from "../components/postTemplate";
-import { data } from "../const";
+import PromptTemplate from "../components/promptTemplate";
+import { API, data } from "../const";
 // import Link from "next/link";
 
 export default function Post() {
+  const [prompts, setPrompts] = useState([]);
+
+  const getData = async () => {
+    const response = await fetch(API + "/prompt");
+    const data = await response.json();
+    setPrompts(data);
+    console.log(prompts);
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <main className="min-h-screen flex-col  p-[5%] bg-white">
       {/* Header */}
@@ -64,6 +79,15 @@ export default function Post() {
         </div>
       </div>
       {data.prompts[0].post.map((item, index) => PostTemplate({ item, index }))}
+      {prompts.map((item) => {
+        return (
+          <div>
+            {item.posts.map((post, index) =>
+              PostTemplate({ item: post, index })
+            )}
+          </div>
+        );
+      })}
     </main>
   );
 }
