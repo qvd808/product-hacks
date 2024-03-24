@@ -211,7 +211,7 @@ export default function Home() {
                   <img src="./images/arrow-up-circle.svg"></img>
                 </div>
                 <ParagraphText className="text-lg text-white font-normal mt-6">
-                  200
+                  0
                 </ParagraphText>
                 <div className="mt-6">
                   <img src="./images/arrow-down-circle.svg"></img>
