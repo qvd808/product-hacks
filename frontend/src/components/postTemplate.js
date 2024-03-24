@@ -3,7 +3,6 @@ import { ParagraphText, SectionHeader } from "../components/Common";
 // import Link from "next/link";
 
 const PostTemplate = (props) => {
-  console.log(props);
   return (
     <div className="mt-3 " key={props.index}>
       {/* Post Section*/}
@@ -20,7 +19,7 @@ const PostTemplate = (props) => {
         <div className="flex">
           <img className="mr-2" src="./images/location.svg"></img>
           <ParagraphText className="text-slate-400">
-            {props.location}
+            {props.item.location}
           </ParagraphText>
         </div>
       </div>
@@ -45,7 +44,7 @@ const PostTemplate = (props) => {
               <img src="./images/arrow-up-circle.svg"></img>
             </div>
             <ParagraphText className="text-lg text-white font-normal mt-6">
-              200
+              {props.item.vote}
             </ParagraphText>
             <div className="mt-6">
               <img src="./images/arrow-down-circle.svg"></img>
@@ -57,7 +56,7 @@ const PostTemplate = (props) => {
       <div className="flex justify-between mt-2 ml-2">
         {/* left */}
         <div>
-          <ParagraphText className="text-md">Fun day on Grouse</ParagraphText>
+          <ParagraphText className="text-md">{props.item.caption}</ParagraphText>
         </div>
         {/* right */}
         <div className="flex">
