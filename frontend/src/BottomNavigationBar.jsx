@@ -57,29 +57,59 @@ const BottomNavigationBar = () => {
       </button>
       {isOpen && (
         <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
-          <div className="bg-white p-4 rounded-md">
+          <div className="bg-white p-10 rounded-md">
             <div className="flex flex-col">
               <form className="" onSubmit={handleSubmit}>
                 <input type="file" onChange={handleFileChange} />
-                <input
-                  type="text"
-                  placeholder="Caption"
-                  value={caption}
-                  onChange={handleCaptionChange}
-                />
-                <input
-                  type="text"
-                  placeholder="Location"
-                  value={location}
-                  onChange={handleLocationChange}
-                />
-                <button type="submit">Upload</button>
+                <div className="bg-[#F1F1F1] mt-5 rounded-md">
+                  <input
+                    className="w-full h-[40px] pl-2 bg-[#F1F1F1] rounded-md"
+                    type="text"
+                    placeholder="Caption"
+                    value={caption}
+                    onChange={handleCaptionChange}
+                  />
+                </div>
+                <div className="bg-[#F1F1F1] mt-5 rounded-md">
+                  <input
+                    className="w-full h-[40px]  pl-2 bg-[#F1F1F1] rounded-md"
+                    type="text"
+                    placeholder="Location"
+                    value={location}
+                    onChange={handleLocationChange}
+                  />
+                </div>
+                <div className="flex justify-between m-12">
+                  <div className="bg-[#5D5AFF] py-2 px-3 rounded-md">
+                    {" "}
+                    <button className="text-white" type="submit">
+                      Upload
+                    </button>
+                  </div>
+
+                  <div className="bg-black py-2 px-3 rounded-md">
+                    <button className="text-white" onClick={closePopup}>
+                      Close
+                    </button>
+                  </div>
+                </div>
               </form>
             </div>
-            <button onClick={closePopup}>Close</button>
           </div>
         </div>
       )}{" "}
+      {locat.pathname === "/search" ? (
+        <div className="fixed bottom-20 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          {" "}
+          <div className="flex justify-center items-center w-[300px] h-[40px] bg-[#5D5AFF] rounded-lg">
+            <ParagraphText className=" !text-lg font-bold text-white text-center">
+              Create a prompt
+            </ParagraphText>
+          </div>
+        </div>
+      ) : (
+        <div></div>
+      )}
       <nav className=" bg-white text-black py-4 text-center fixed bottom-0 w-full border-t-2 shadow-sm">
         <ul className="flex justify-between px-20 py-2">
           <li>

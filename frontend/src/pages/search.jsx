@@ -10,7 +10,7 @@ export default function Search() {
     setInputValue(event.target.value);
   };
   return (
-    <div className="p-[5%] mb-20">
+    <div className="p-[5%] mb-32">
       {/* Header */}
       <div className="flex justify-between">
         {/* left */}

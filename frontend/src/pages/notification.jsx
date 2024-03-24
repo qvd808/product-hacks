@@ -40,7 +40,7 @@ const dataYesterday = [
 ];
 export default function Notification() {
   return (
-    <div className="min-h-screen flex-col bg-white mb-20">
+    <div className="min-h-screen flex-col bg-[#F1F1F1] mb-10">
       <div className=" p-[5%] bg-white">
         {/* Header */}
         <div className="flex justify-between">

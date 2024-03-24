@@ -5,9 +5,7 @@ import PromptTemplate from "../components/promptTemplate";
 import { API, data } from "../const";
 // import Link from "next/link";
 
-
 export default function Post() {
-  
   const [prompts, setPrompts] = useState([]);
 
   const getData = async () => {
@@ -22,7 +20,7 @@ export default function Post() {
   }, []);
 
   return (
-    <main className=" min-h-screen flex-col  p-[5%] bg-white mb-20">
+    <main className=" min-h-screen flex-col  p-[5%] bg-white mb-32">
       {/* Header */}
       <div className="flex justify-between">
         {/* left */}
@@ -89,9 +87,11 @@ export default function Post() {
       {prompts.map((singlePost) => {
         return (
           <div>
-            {singlePost.posts.sort((a,b) => (a.vote < b.vote)).map((post, index) =>
-              PostTemplate({ item: post, index, singlePost })
-            )}
+            {singlePost.posts
+              .sort((a, b) => a.vote < b.vote)
+              .map((post, index) =>
+                PostTemplate({ item: post, index, singlePost })
+              )}
           </div>
         );
       })}
