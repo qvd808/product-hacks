@@ -21,18 +21,20 @@ Clik is a social media app centered around **fun and locally curated prompts** t
 - We built it using React, TailwindCSS for the front-end and Firebase for the back-end.
 
 ## What we learned
-- Throughout the projects, our teams honed their collaboration and time management skills. We consistently planned and enhanced the design to achieve a Minimum Viable Product by the hackathon's conclusion.
+- Throughout the projects, our teams learned to work together and improve time management skills. We continuously planned and enhanced the design to achieve an MVP by the end of the hackathon.
 
 ## Challenges we ran into
-- One of the biggest challenge in this hackathon is time. We have to delivery a MVP during this 24 hour period. However, we overcome it with persistant. By choosing the right tech stacks, planning skills and time management, we overcome this problem.
+- One of the biggest challenges in this hackathon is time. We must deliver a Minimum Viable Product within a 24-hour period. However, we overcame it with persistence. By selecting the right tech stacks, refining our planning skills, and managing our time effectively, we overcome this obstacle.
 
 ## Accomplishments that we're proud of
-- Responsiveness and beautiful UI
+- Responsiveness and awesome UI
 - Great teamwork
-- Learned Lots!
+- Minimum functionality: user able to post, stores the data, etc.
 
 ## What's next for Clik 
-
+- Improve the design and adding more features that improve UX
+- Design so it is more responsive to all screen size
+- Improve the structure and implementation details to optimize due to handle multiples and concurrent API calls
 
 ## Build Instructions
 1. Clone our git repository: https://github.com/qvd808/product-hacks
