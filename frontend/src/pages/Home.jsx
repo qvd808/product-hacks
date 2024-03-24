@@ -8,7 +8,7 @@ export default function Home() {
         {/* Header */}
         <div className="flex justify-between">
           {/* left */}
-          <SectionHeader className="text-dmsans italic text-[#5D5AFF] uppercase text-black font-bold ">
+          <SectionHeader className="text-dmsans italic !text-[#5D5AFF] uppercase font-bold ">
             Clik
           </SectionHeader>
           {/* right */}
@@ -65,7 +65,7 @@ export default function Home() {
             <div className="relative bg-slate-200 min-h-52 max-h-96 md:max-h-[1000px] rounded-md">
               <img
                 className="w-full min-h-52 max-h-96 md:max-h-[1000px] rounded-lg "
-                src="./images/o.jpg"
+                src="./images/bigway2.png"
               ></img>
               <div class="absolute top-0 right-0 w-1/4 h-full bg-gradient-to-r from-transparent to-black opacity-40"></div>
               {/* top icon */}
@@ -115,15 +115,14 @@ export default function Home() {
             </ParagraphText>
             <div className="flex items-center justify-between">
               <ParagraphText className="text-xl w-[60%] mt-3 text-start">
-              Slightly unfortunate events
+                Slightly unfortunate events
               </ParagraphText>
               <a href="/post2">
                 {" "}
-              <img
-                className="w-[65px]"
-                src="./images/chevron-right-black.svg"
-
-              ></img>
+                <img
+                  className="w-[65px]"
+                  src="./images/chevron-right-black.svg"
+                ></img>
               </a>
             </div>
             <div className="mt-2 mb-10">

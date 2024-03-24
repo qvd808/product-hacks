@@ -59,7 +59,7 @@ export default function Search() {
       {/* Header */}
       <div className="flex justify-between">
         {/* left */}
-        <SectionHeader className="text-dmsans italic text-[#5D5AFF] uppercase text-black font-bold ">
+        <SectionHeader className="text-dmsans italic !text-[#5D5AFF] uppercase font-bold ">
           Clik
         </SectionHeader>
         {/* right */}

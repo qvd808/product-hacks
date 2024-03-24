@@ -7,7 +7,7 @@ export default function Profile() {
       {/* Header */}
       <div className="flex justify-between">
         {/* left */}
-        <SectionHeader className="text-dmsans text-[#5D5AFF] italic uppercase text-black font-bold ">
+        <SectionHeader className="text-dmsans !text-[#5D5AFF] italic uppercase font-bold ">
           Clik
         </SectionHeader>
         {/* right */}
@@ -99,7 +99,7 @@ export default function Profile() {
             <ParagraphText className="text-xl leading-[115%] text-start">
               Show us where you and your ex broke up.
             </ParagraphText>
-            <a href="/post">
+            <a href="/post3">
               {" "}
               <div className="flex items-center justify-between">
                 <img
@@ -122,9 +122,7 @@ export default function Profile() {
             {/* right */}
             <div className="flex flex-row w-[100%] justify-end">
               <img className="mr-2" src="./images/location.svg"></img>
-              <ParagraphText className="text-slate-400">
-                Granville Island
-              </ParagraphText>
+              <ParagraphText className="text-slate-400">Richmond</ParagraphText>
             </div>
           </div>
 
@@ -133,7 +131,7 @@ export default function Profile() {
             <div className="relative bg-slate-200 min-h-52 max-h-96 md:max-h-[1000px] rounded-md">
               <img
                 className="w-full min-h-52 max-h-96 md:max-h-[1000px] rounded-lg"
-                src="./images/o.jpg"
+                src="./images/break-up1.jpg"
               ></img>
               <div class="absolute top-0 right-0 w-1/4 h-full bg-gradient-to-r from-transparent to-black opacity-40"></div>
               {/* top icon */}
@@ -148,7 +146,7 @@ export default function Profile() {
                   <img src="./images/arrow-up-circle.svg"></img>
                 </div>
                 <ParagraphText className="text-lg text-white font-normal mt-6">
-                  200
+                  0
                 </ParagraphText>
                 <div className="mt-6">
                   <img src="./images/arrow-down-circle.svg"></img>
