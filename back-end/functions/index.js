@@ -29,12 +29,11 @@ app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
   res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
   res.header(
-      "Access-Control-Allow-Headers",
-      "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
   );
   next();
 });
-
 
 app.get("/", (req, res) => {
   return res.status(200).send("Hello world");
@@ -66,7 +65,7 @@ app.post("/upload", upload.single("file"), async (req, res) => {
 app.post("/prompt", async (req, res) => {
   const db = admin.firestore();
 
-  const { topic } = req.body;
+  const { topic, isSponsored, whenClosed } = req.body;
 
   console.log(topic);
 
@@ -81,6 +80,9 @@ app.post("/prompt", async (req, res) => {
     .doc("prompt-" + (i + 1).toString())
     .set({
       topic: topic,
+      numOfPosts: 0,
+      isSponsored: isSponsored,
+      whenClosed: whenClosed,
     });
 
   return res.json("Prompt added successfully");
@@ -96,8 +98,22 @@ app.get("/prompt", async (req, res) => {
     result.push({
       id: doc.id,
       data: doc.data(),
+      posts: [],
     });
   });
+
+  for (let i = 0; i < result.length; i++) {
+    const posts = await db
+      .collection("prompts")
+      .doc(result[i].id)
+      .collection("posts")
+      .get();
+
+    posts.forEach((doc) => {
+      result[i].posts.push({ ...doc.data(), id: doc.id });
+    });
+  }
+
   return res.json(result);
 });
 
@@ -130,7 +146,7 @@ app.get("/post", async (req, res) => {
 
 app.post("/post", async (req, res) => {
   const db = admin.firestore();
-  const { id, user, image } = req.body;
+  const { id, user, image, location, caption } = req.body;
 
   const posts = await db
     .collection("prompts")
@@ -149,17 +165,61 @@ app.post("/post", async (req, res) => {
     console.log(doc.id, "=>", doc.data());
   });
 
+  const temp = await db
+    .collection("prompts")
+    .doc(id)
+    .set(
+      {
+        numOfPosts: i + 1,
+      },
+      { merge: true }
+    );
+
   const result = await db
     .collection("prompts")
     .doc(id)
     .collection("posts")
     .doc("post-" + (i + 1).toString())
     .set({
+      id: "post-" + (i + 1).toString(),
       user: user,
       image: image,
+      location: location,
+      vote: 0,
+      caption: caption,
     });
 
   res.json(result);
+});
+
+app.post("/post/vote", async (req, res) => {
+  const db = admin.firestore();
+  const { id, postId } = req.body;
+
+  const post = await db
+    .collection("prompts")
+    .doc(id)
+    .collection("posts")
+    .doc(postId)
+    .get()
+    .catch((error) => {
+      console.error(error);
+      return res.status(500).send("Error fetching data");
+    });
+
+  const temp = await db
+    .collection("prompts")
+    .doc(id)
+    .collection("posts")
+    .doc(postId)
+    .set(
+      {
+        vote: post.data().vote + 1,
+      },
+      { merge: true }
+    );
+
+  res.json(temp);
 });
 
 exports.app = functions.https.onRequest(app);
