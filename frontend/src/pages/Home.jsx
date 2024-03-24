@@ -9,7 +9,7 @@ export default function Home() {
         <div className="flex justify-between">
           {/* left */}
           <SectionHeader className="text-dmsans italic uppercase text-black font-bold ">
-            Chomp
+            Clik
           </SectionHeader>
           {/* right */}
           <div>

@@ -20,7 +20,7 @@ const PostTemplate = (props) => {
         <div className="flex">
           <img className="mr-2" src="./images/location.svg"></img>
           <ParagraphText className="text-slate-400">
-            {props.location}
+            {props.item.location}
           </ParagraphText>
         </div>
       </div>

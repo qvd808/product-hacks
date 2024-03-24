@@ -9,8 +9,8 @@ export default function Post() {
       {/* Header */}
       <div className="flex justify-between">
         {/* left */}
-        <SectionHeader className="text-dmsans-italic uppercase text-black font-bold ">
-          Chomp
+        <SectionHeader className="text-dmsans italic uppercase text-black font-bold ">
+          Clik
         </SectionHeader>
         {/* right */}
         <div>
@@ -45,7 +45,7 @@ export default function Post() {
       </div>
       {/* Post Section*/}
       <div className="mt-3">
-        <ParagraphText className="!text-3xl leading-[115%]">
+        <ParagraphText className="!text-3xl text-start leading-[115%]">
           {data.prompts[0].topic}
         </ParagraphText>
         {/* Post Sort */}
