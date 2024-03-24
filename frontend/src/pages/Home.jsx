@@ -12,9 +12,12 @@ export default function Home() {
             Clik
           </SectionHeader>
           {/* right */}
-          <div>
-            <img src="./images/user.svg"></img>
-          </div>
+          <a href="/profile">
+            {" "}
+            <div>
+              <img src="./images/user.svg"></img>
+            </div>
+          </a>
         </div>
         {/* Subheader*/}
         <div className="flex uppercase mt-8">
