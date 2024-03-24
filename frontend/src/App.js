@@ -8,6 +8,7 @@ import Notification from "./pages/notification";
 import Profile from "./pages/profile";
 import BottomNavigationBar from "./BottomNavigationBar";
 import Test from "./pages/Test";
+import Post2 from "./pages/post2";
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
             <Route path="/notification" element={<Notification />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/test" element={<Test />} />
-            <Route path="/notification" element={<Notification />} />
+            <Route path="/post2" element={<Post2 />} />
           </Routes>
         </main>
         <BottomNavigationBar></BottomNavigationBar>

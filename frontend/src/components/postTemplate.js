@@ -56,11 +56,13 @@ const PostTemplate = (props) => {
           ></img>
           <div class="absolute top-0 right-0 w-1/4 h-full bg-gradient-to-r from-transparent to-black opacity-40"></div>
           {/* top icon */}
-          <div className="absolute top-3 left-4 rounded-xl bg-slate-200 py-1 px-3">
-            <ParagraphText className="uppercase font-semibold">
-              Top
-            </ParagraphText>
-          </div>
+          {props.index === 0 && (
+            <div className="absolute top-3 left-4 rounded-xl bg-slate-200 py-1 px-3">
+              <ParagraphText className="uppercase font-semibold">
+                Top
+              </ParagraphText>
+            </div>
+          )}
           {/* side buttons */}
           <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
             <div className="">
