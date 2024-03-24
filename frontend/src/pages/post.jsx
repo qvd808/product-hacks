@@ -12,7 +12,7 @@ export default function Post() {
     const response = await fetch(API + "/prompt");
     const data = await response.json();
     setPrompts(data);
-    console.log(prompts);
+    // console.log(prompts);
   };
 
   useEffect(() => {
@@ -78,12 +78,12 @@ export default function Post() {
           </div>
         </div>
       </div>
-      {data.prompts[0].post.map((item, index) => PostTemplate({ item, index }))}
-      {prompts.map((item) => {
+      {/* {data.prompts[0].post.map((item, index) => PostTemplate({ item, index }))} */}
+      {prompts.map((singlePost) => {
         return (
           <div>
-            {item.posts.map((post, index) =>
-              PostTemplate({ item: post, index })
+            {singlePost.posts.map((post, index) =>
+              PostTemplate({ item: post, index, singlePost })
             )}
           </div>
         );

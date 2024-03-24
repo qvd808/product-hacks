@@ -1,8 +1,31 @@
 import React from "react";
 import { ParagraphText, SectionHeader } from "../components/Common";
 // import Link from "next/link";
+import { API } from "../const";
 
 const PostTemplate = (props) => {
+  const upVote = async (id, postId) => {
+    await fetch(API + "/post/up-vote", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id: id, postId: postId }),
+    });
+    window.location.reload();
+  };
+
+  const downVote = async (id, postId) => {
+    await fetch(API + "/post/down-vote", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id: id, postId: postId }),
+    });
+    window.location.reload();
+  };
+
   return (
     <div className="mt-3 " key={props.index}>
       {/* Post Section*/}
@@ -41,13 +64,27 @@ const PostTemplate = (props) => {
           {/* side buttons */}
           <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
             <div className="">
-              <img src="./images/arrow-up-circle.svg"></img>
+              <img
+                onClick={() => {
+                  upVote(props.singlePost.id, props.item.id);
+                  // console.log(props.singlePost.id, props.item.id)
+                }}
+                className="hover:scale-150"
+                src="./images/arrow-up-circle.svg"
+              ></img>
             </div>
             <ParagraphText className="text-lg text-white font-normal mt-6">
               {props.item.vote}
             </ParagraphText>
             <div className="mt-6">
-              <img src="./images/arrow-down-circle.svg"></img>
+              <img
+                onClick={() => {
+                  downVote(props.singlePost.id, props.item.id);
+                  // console.log(props.singlePost.id, props.item.id)
+                }}
+                className="hover:scale-150"
+                src="./images/arrow-down-circle.svg"
+              ></img>
             </div>
           </div>
         </div>
@@ -56,7 +93,9 @@ const PostTemplate = (props) => {
       <div className="flex justify-between mt-2 ml-2">
         {/* left */}
         <div>
-          <ParagraphText className="text-md">{props.item.caption}</ParagraphText>
+          <ParagraphText className="text-md">
+            {props.item.caption}
+          </ParagraphText>
         </div>
         {/* right */}
         <div className="flex">

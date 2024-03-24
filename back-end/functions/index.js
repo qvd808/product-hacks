@@ -192,7 +192,7 @@ app.post("/post", async (req, res) => {
   res.json(result);
 });
 
-app.post("/post/vote", async (req, res) => {
+app.post("/post/up-vote", async (req, res) => {
   const db = admin.firestore();
   const { id, postId } = req.body;
 
@@ -215,6 +215,36 @@ app.post("/post/vote", async (req, res) => {
     .set(
       {
         vote: post.data().vote + 1,
+      },
+      { merge: true }
+    );
+
+  res.json(temp);
+});
+
+app.post("/post/down-vote", async (req, res) => {
+  const db = admin.firestore();
+  const { id, postId } = req.body;
+
+  const post = await db
+    .collection("prompts")
+    .doc(id)
+    .collection("posts")
+    .doc(postId)
+    .get()
+    .catch((error) => {
+      console.error(error);
+      return res.status(500).send("Error fetching data");
+    });
+
+  const temp = await db
+    .collection("prompts")
+    .doc(id)
+    .collection("posts")
+    .doc(postId)
+    .set(
+      {
+        vote: post.data().vote - 1,
       },
       { merge: true }
     );
