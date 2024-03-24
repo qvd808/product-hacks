@@ -20,16 +20,21 @@ export default function Post() {
   }, []);
 
   return (
-    <main className="min-h-screen flex-col  p-[5%] bg-white">
+    <main className=" min-h-screen flex-col  p-[5%] bg-white mb-20">
       {/* Header */}
       <div className="flex justify-between">
         {/* left */}
-        <SectionHeader className="text-dmsans italic uppercase text-black font-bold ">
+        <SectionHeader className="text-dmsans italic text-[#5D5AFF] uppercase text-black font-bold ">
           Clik
         </SectionHeader>
         {/* right */}
         <div>
-          <img src="./images/user.svg"></img>
+          <a href="/profile">
+            {" "}
+            <div>
+              <img src="./images/user.svg"></img>
+            </div>
+          </a>
         </div>
       </div>
       {/* Subheader*/}

@@ -10,16 +10,21 @@ export default function Search() {
     setInputValue(event.target.value);
   };
   return (
-    <div className="p-[5%]">
+    <div className="p-[5%] mb-20">
       {/* Header */}
       <div className="flex justify-between">
         {/* left */}
-        <SectionHeader className="text-dmsans italic uppercase text-black font-bold ">
+        <SectionHeader className="text-dmsans italic text-[#5D5AFF] uppercase text-black font-bold ">
           Clik
         </SectionHeader>
         {/* right */}
         <div>
-          <img src="./images/user.svg"></img>
+          <a href="/profile">
+            {" "}
+            <div>
+              <img src="./images/user.svg"></img>
+            </div>
+          </a>
         </div>
       </div>
       {/*  Subheader*/}

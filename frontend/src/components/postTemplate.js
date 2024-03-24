@@ -4,7 +4,7 @@ import { ParagraphText, SectionHeader } from "../components/Common";
 
 const PostTemplate = (props) => {
   return (
-    <div className="mt-3 " key={props.index}>
+    <div className=" mt-3 " key={props.index}>
       {/* Post Section*/}
       {/* User + location */}
       <div className="mt-5 flex justify-between">
@@ -56,7 +56,9 @@ const PostTemplate = (props) => {
       <div className="flex justify-between mt-2 ml-2">
         {/* left */}
         <div>
-          <ParagraphText className="text-md">{props.item.caption}</ParagraphText>
+          <ParagraphText className="text-md">
+            {props.item.caption}
+          </ParagraphText>
         </div>
         {/* right */}
         <div className="flex">

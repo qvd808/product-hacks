@@ -8,7 +8,7 @@ export default function Home() {
         {/* Header */}
         <div className="flex justify-between">
           {/* left */}
-          <SectionHeader className="text-dmsans italic uppercase text-black font-bold ">
+          <SectionHeader className="text-dmsans italic text-[#5D5AFF] uppercase text-black font-bold ">
             Clik
           </SectionHeader>
           {/* right */}
@@ -64,7 +64,7 @@ export default function Home() {
           <div className="mt-2">
             <div className="relative bg-slate-200 min-h-52 max-h-96 md:max-h-[1000px] rounded-md">
               <img
-                className="w-full min-h-52 max-h-96 md:max-h-[1000px] rounded-lg"
+                className="w-full min-h-52 max-h-96 md:max-h-[1000px] rounded-lg "
                 src="./images/o.jpg"
               ></img>
               <div class="absolute top-0 right-0 w-1/4 h-full bg-gradient-to-r from-transparent to-black opacity-40"></div>
