@@ -6,9 +6,7 @@ import { API, data } from "../const";
 import { useSearchParams } from "react-router-dom";
 // import Link from "next/link";
 
-
 export default function Post() {
-  
   const [prompts, setPrompts] = useState([]);
   let [searchParams, setSearchParams] = useSearchParams();
 
@@ -22,11 +20,14 @@ export default function Post() {
 
   useEffect(() => {
     getData();
-    setSearchParams({ id: "prompt-1", "topic": "The craziest things you can do with $5.50 CAD."});
+    setSearchParams({
+      id: "prompt-1",
+      topic: "The craziest things you can do with $5.50 CAD.",
+    });
   }, []);
 
   return (
-    <main className=" min-h-screen flex-col  p-[5%] bg-white mb-20">
+    <main className=" min-h-screen flex-col  p-[5%] bg-white mb-32">
       {/* Header */}
       <div className="flex justify-between">
         {/* left */}
@@ -93,9 +94,11 @@ export default function Post() {
       {prompts.map((singlePost) => {
         return (
           <div>
-            {singlePost.posts.sort((a,b) => (a.vote < b.vote)).map((post, index) =>
-              PostTemplate({ item: post, index, singlePost })
-            )}
+            {singlePost.posts
+              .sort((a, b) => a.vote < b.vote)
+              .map((post, index) =>
+                PostTemplate({ item: post, index, singlePost })
+              )}
           </div>
         );
       })}

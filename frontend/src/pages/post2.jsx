@@ -27,7 +27,7 @@ export default function Post2() {
   }, []);
 
   return (
-    <main className=" min-h-screen flex-col  p-[5%] bg-white mb-20">
+    <main className=" min-h-screen flex-col  p-[5%] bg-white mb-32">
       {/* Header */}
       <div className="flex justify-between">
         {/* left */}
@@ -73,7 +73,7 @@ export default function Post2() {
       {/* Post Section*/}
       <div className="mt-3">
         <ParagraphText className="!text-3xl text-start leading-[115%]">
-        Slightly unfortunate events
+          Slightly unfortunate events
         </ParagraphText>
         {/* Post Sort */}
         <div className="mt-[18px] flex justify-between">

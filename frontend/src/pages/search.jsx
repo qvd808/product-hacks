@@ -1,6 +1,51 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ParagraphText, SectionHeader } from "../components/Common";
+
+const ongoingData = [
+  {
+    numberOfPosts: 12,
+    daysEnd: 2,
+    prompt: "Locking in",
+    sponsored: false,
+  },
+  {
+    numberOfPosts: 43,
+    daysEnd: 6,
+    prompt: "Your weekly #girlmath purchase",
+    sponsored: false,
+  },
+  {
+    numberOfPosts: 33,
+    daysEnd: 1,
+    prompt: "The state of your kitchen",
+    sponsored: true,
+  },
+  {
+    numberOfPosts: 3,
+    daysEnd: 3,
+    prompt: "The craziest thing you can do with $5.50 CAD",
+    sponsored: false,
+  },
+  {
+    numberOfPosts: 7,
+    daysEnd: 2,
+    prompt: "Was the wait worth it",
+    sponsored: false,
+  },
+  {
+    numberOfPosts: 21,
+    daysEnd: 3,
+    prompt: "Aritzia OOTD",
+    sponsored: true,
+  },
+  {
+    numberOfPosts: 4,
+    daysEnd: 1,
+    prompt: "Slightly Unforunate Event",
+    sponsored: false,
+  },
+];
 export default function Search() {
   // Define state to manage the input value
   const [inputValue, setInputValue] = useState("");
@@ -53,31 +98,43 @@ export default function Search() {
         </ParagraphText>
       </div>
       {/* Prompt Card */}
-      <div className="flex border-t-2 border-b-2 mt-1 justify-between">
-        <div className="flex">
-          <div className="flex mr-3">
-            <img
-              className="w-[20pt] self-start"
-              src="./images/arrow-up-circle.svg"
-            ></img>
-            <ParagraphText className="!text-[11pt] text-bold self-start mt-1">
-              12
-            </ParagraphText>
+      {ongoingData.map((item) => (
+        <div className="flex border-b-2  mt-1 justify-between">
+          <div className="flex">
+            <div className="flex mr-3 w-[70px]">
+              <img
+                className="w-[20pt] self-start mr-1"
+                src="./images/arrow-up-circle.svg"
+              ></img>
+              <ParagraphText className="!text-[11pt] text-bold self-start mt-1">
+                {item.numberOfPosts}
+              </ParagraphText>
+            </div>
+
+            <div className=" flex flex-col text-start">
+              {" "}
+              <ParagraphText className="!text-lg text-start w-[270px]">
+                {item.prompt}
+              </ParagraphText>
+              <ParagraphText>
+                {" "}
+                {item.sponsored ? (
+                  <div className="rounded-md bg-[#F1F1F1] p-1 w-[115px] uppercase text-center">
+                    Sponsored
+                  </div>
+                ) : (
+                  <div></div>
+                )}
+              </ParagraphText>
+              <ParagraphText className="!text-md text-start">
+                Closes in {item.daysEnd} days.
+              </ParagraphText>
+            </div>
           </div>
 
-          <div className=" flex flex-col">
-            {" "}
-            <ParagraphText className="!text-lg text-start">
-              Locking in
-            </ParagraphText>
-            <ParagraphText className="!text-md text-start">
-              Closes in 4 days
-            </ParagraphText>
-          </div>
+          <img className="" src="./images/chevron-right-black.svg"></img>
         </div>
-
-        <img className="" src="./images/chevron-right-black.svg"></img>
-      </div>
+      ))}
       {/*  */}
       <div className="mt-10">
         <ParagraphText className="uppercase font-semibold !text-lg text-start">

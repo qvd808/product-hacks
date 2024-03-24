@@ -6,7 +6,7 @@ import { API, data } from "../const";
 import { useSearchParams } from "react-router-dom";
 // import Link from "next/link";
 
-const topic = "Show us where you and your ex broke up."
+const topic = "Show us where you and your ex broke up.";
 
 export default function Post3() {
   const [prompts, setPrompts] = useState([]);
@@ -29,7 +29,7 @@ export default function Post3() {
   }, []);
 
   return (
-    <main className=" min-h-screen flex-col  p-[5%] bg-white mb-20">
+    <main className=" min-h-screen flex-col  p-[5%] bg-white mb-32">
       {/* Header */}
       <div className="flex justify-between">
         {/* left */}
@@ -75,7 +75,7 @@ export default function Post3() {
       {/* Post Section*/}
       <div className="mt-3">
         <ParagraphText className="!text-3xl text-start leading-[115%]">
-        {topic}
+          {topic}
         </ParagraphText>
         {/* Post Sort */}
         <div className="mt-[18px] flex justify-between">
