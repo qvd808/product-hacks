@@ -115,7 +115,7 @@ export default function Home() {
             </ParagraphText>
             <div className="flex items-center justify-between">
               <ParagraphText className="text-xl w-[60%] mt-3 text-start">
-                Let the yearly flying ant posts begin
+              Slightly unfortunate events
               </ParagraphText>
               <a href="/post2">
                 {" "}
@@ -132,7 +132,7 @@ export default function Home() {
                 <div className="p-3 self-center">
                   <img
                     className="w-full min-h-[30px] max-h-[400px] rounded-lg"
-                    src="./images/o.jpg"
+                    src="./images/unfortunate1.png"
                   ></img>
                 </div>
 
@@ -141,14 +141,14 @@ export default function Home() {
                   <div className="p-3">
                     <img
                       className="w-full min-h-[30px] max-h-[150px] rounded-lg"
-                      src="./images/vancouver.jpg"
+                      src="./images/unfortunate2.png"
                     ></img>
                   </div>
                   <div className="p-3">
                     {" "}
                     <img
                       className="w-full min-h-[30px] max-h-[150px] rounded-lg"
-                      src="./images/plague-of-ants.jpg"
+                      src="./images/unfortunate3.png"
                     ></img>
                   </div>
                 </div>
@@ -163,7 +163,7 @@ export default function Home() {
             <ParagraphText className="text-xl leading-[115%] text-start">
               Show us where you and your ex broke up.
             </ParagraphText>
-            <a href="/post">
+            <a href="/post3">
               {" "}
               <div className="flex items-center justify-between">
                 <img
@@ -197,7 +197,7 @@ export default function Home() {
             <div className="relative bg-slate-200 min-h-52 max-h-96 md:max-h-[1000px] rounded-md">
               <img
                 className="w-full min-h-52 max-h-96 md:max-h-[1000px] rounded-lg"
-                src="./images/o.jpg"
+                src="./images/break-up1.jpg"
               ></img>
               <div class="absolute top-0 right-0 w-1/4 h-full bg-gradient-to-r from-transparent to-black opacity-40"></div>
               {/* top icon */}
@@ -244,7 +244,7 @@ export default function Home() {
             <ParagraphText className="text-xl leading-[115%] text-start">
               Something you're proud of this week
             </ParagraphText>
-            <a href="/post">
+            <a href="/post4">
               {" "}
               <div className="flex items-center justify-between">
                 <img
@@ -259,13 +259,25 @@ export default function Home() {
             <div className="p-2">
               <img
                 className="min-h-[50px] max-h-[200px] rounded-lg"
-                src="./images/vancouver.jpg"
+                src="./images/proud-1.png"
               ></img>
             </div>
             <div className="p-2">
               <img
                 className="min-h-[50px] max-h-[200px] rounded-lg"
-                src="./images/bigway.jpg"
+                src="./images/proud-2.png"
+              ></img>
+            </div>
+            <div className="p-2">
+              <img
+                className="min-h-[50px] max-h-[200px] rounded-lg"
+                src="./images/proud-3.png"
+              ></img>
+            </div>
+            <div className="p-2">
+              <img
+                className="min-h-[50px] max-h-[200px] rounded-lg"
+                src="./images/proud-4.png"
               ></img>
             </div>
           </div>

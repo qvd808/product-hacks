@@ -10,6 +10,8 @@ import BottomNavigationBar from "./BottomNavigationBar";
 import Test from "./pages/Test";
 import Post2 from "./pages/post2";
 import PostAPost from "./pages/postAPost";
+import Post3 from "./pages/post3";
+import Post4 from "./pages/post4";
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/test" element={<Test />} />
             <Route path="/post2" element={<Post2 />} />
+            <Route path="/post3" element={<Post3 />} />
+            <Route path="/post4" element={<Post4 />} />
             <Route path="/postApost" element={<PostAPost />} />
           </Routes>
         </main>

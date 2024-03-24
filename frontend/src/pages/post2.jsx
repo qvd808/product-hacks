@@ -3,33 +3,45 @@ import { ParagraphText, SectionHeader } from "../components/Common";
 import PostTemplate from "../components/postTemplate";
 import PromptTemplate from "../components/promptTemplate";
 import { API, data } from "../const";
+import { useSearchParams } from "react-router-dom";
 // import Link from "next/link";
 
 export default function Post2() {
   const [prompts, setPrompts] = useState([]);
+  let [searchParams, setSearchParams] = useSearchParams();
 
   const getData = async () => {
     const response = await fetch(API + "/prompt");
     const data = await response.json();
-    setPrompts(data.filter((prompt) => prompt.id === "prompt-3"));
-    console.log(prompts);
+    setPrompts(data);
+    setPrompts(data.filter((prompt) => prompt.id === "prompt-2"));
+    // console.log(prompts);
   };
 
   useEffect(() => {
     getData();
+    setSearchParams({
+      id: "prompt-2",
+      topic: "Slightly unfortunate events",
+    });
   }, []);
 
   return (
-    <main className="min-h-screen flex-col  p-[5%] bg-white mb-20">
+    <main className=" min-h-screen flex-col  p-[5%] bg-white mb-20">
       {/* Header */}
       <div className="flex justify-between">
         {/* left */}
-        <SectionHeader className="text-dmsans italic uppercase text-black font-bold ">
+        <SectionHeader className="text-dmsans italic text-[#5D5AFF] uppercase text-black font-bold ">
           Clik
         </SectionHeader>
         {/* right */}
         <div>
-          <img src="./images/user.svg"></img>
+          <a href="/profile">
+            {" "}
+            <div>
+              <img src="./images/user.svg"></img>
+            </div>
+          </a>
         </div>
       </div>
       {/* Subheader*/}
@@ -61,7 +73,7 @@ export default function Post2() {
       {/* Post Section*/}
       <div className="mt-3">
         <ParagraphText className="!text-3xl text-start leading-[115%]">
-          Let the yearly flying ant posts begin
+        Slightly unfortunate events
         </ParagraphText>
         {/* Post Sort */}
         <div className="mt-[18px] flex justify-between">
