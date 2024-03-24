@@ -5,6 +5,7 @@ const cors = require("cors");
 var admin = require("firebase-admin");
 const multer = require("multer");
 var serviceAccount = require("./product-hack-2024-firebase-adminsdk-1sjsq-971eb9bf75.json");
+const fileParser = require('express-multipart-file-parser')
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
@@ -13,7 +14,7 @@ admin.initializeApp({
 
 const storage = multer.memoryStorage({
   destination: (req, file, cb) => {
-    cb(null, "uploads");
+    cb(null, "./uploads");
   },
   filename: (req, file, cb) => {
     cb(null, file.originalname);
@@ -25,6 +26,8 @@ var bucket = admin.storage().bucket();
 
 app.use(cors({ origin: true }));
 app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
+app.use(fileParser)
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
   res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
@@ -41,19 +44,19 @@ app.get("/", (req, res) => {
 
 app.post("/upload", upload.single("file"), async (req, res) => {
   try {
-    let file = req.file;
-    const bucketFile = bucket.file("uploads/" + file.originalname);
-    await bucketFile.save(file.buffer, {
-      metadata: {
-        contentType: file.mimetype,
-      },
-    });
+    // let file = req.file;
+    // const bucketFile = bucket.file("uploads/" + file.originalname);
+    // await bucketFile.save(file.buffer, {
+    //   metadata: {
+    //     contentType: file.mimetype,
+    //   },
+    // });
 
-    await bucketFile.makePublic();
+    // await bucketFile.makePublic();
 
-    const url = `https://storage.googleapis.com/${bucket.name}/${bucketFile.name}`;
+    // const url = `https://storage.googleapis.com/${bucket.name}/${bucketFile.name}`;
 
-    console.log(url);
+    // console.log(url);
 
     return res.status(200).send("File uploaded successfully");
   } catch (error) {
@@ -61,6 +64,28 @@ app.post("/upload", upload.single("file"), async (req, res) => {
     return "Error not found";
   }
 });
+
+app.post('/file',async (req, res) => {
+  const {
+    fieldname,
+    originalname,
+    encoding,
+    mimetype,
+    buffer,
+  } = req.files[0]
+    const bucketFile = bucket.file("uploads/" + originalname);
+
+    await bucketFile.save(buffer, {
+      metadata: {
+        contentType: mimetype,
+      },
+    });
+    await bucketFile.makePublic();
+
+    const url = `https://storage.googleapis.com/${bucket.name}/${bucketFile.name}`;
+
+    res.json(url);
+})
 
 app.post("/prompt", async (req, res) => {
   const db = admin.firestore();
