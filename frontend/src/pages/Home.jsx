@@ -117,10 +117,14 @@ export default function Home() {
               <ParagraphText className="text-xl w-[60%] mt-3 text-start">
                 Let the yearly flying ant posts begin
               </ParagraphText>
+              <a href="/post2">
+                {" "}
               <img
                 className="w-[65px]"
                 src="./images/chevron-right-black.svg"
+
               ></img>
+              </a>
             </div>
             <div className="mt-2 mb-10">
               <div className="grid grid-cols-2">
@@ -152,6 +156,7 @@ export default function Home() {
             </div>
           </div>
         </div>
+
         {/* Third Post */}
         <div className="mt-1 px-[5%]">
           <div className="flex justify-between items-center">
@@ -231,6 +236,7 @@ export default function Home() {
             </div>
           </div>
         </div>
+
         {/* Fourth Post */}
         <div className="mt-1 px-[5%] mt-10">
           {" "}

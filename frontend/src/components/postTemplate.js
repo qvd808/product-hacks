@@ -1,8 +1,31 @@
 import React from "react";
 import { ParagraphText, SectionHeader } from "../components/Common";
 // import Link from "next/link";
+import { API } from "../const";
 
 const PostTemplate = (props) => {
+  const upVote = async (id, postId) => {
+    await fetch(API + "/post/up-vote", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id: id, postId: postId }),
+    });
+    window.location.reload();
+  };
+
+  const downVote = async (id, postId) => {
+    await fetch(API + "/post/down-vote", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id: id, postId: postId }),
+    });
+    window.location.reload();
+  };
+
   return (
     <div className=" mt-3 " key={props.index}>
       {/* Post Section*/}
@@ -33,21 +56,37 @@ const PostTemplate = (props) => {
           ></img>
           <div class="absolute top-0 right-0 w-1/4 h-full bg-gradient-to-r from-transparent to-black opacity-40"></div>
           {/* top icon */}
-          <div className="absolute top-3 left-4 rounded-xl bg-slate-200 py-1 px-3">
-            <ParagraphText className="uppercase font-semibold">
-              Top
-            </ParagraphText>
-          </div>
+          {props.index === 0 && (
+            <div className="absolute top-3 left-4 rounded-xl bg-slate-200 py-1 px-3">
+              <ParagraphText className="uppercase font-semibold">
+                Top
+              </ParagraphText>
+            </div>
+          )}
           {/* side buttons */}
           <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
             <div className="">
-              <img src="./images/arrow-up-circle.svg"></img>
+              <img
+                onClick={() => {
+                  upVote(props.singlePost.id, props.item.id);
+                  // console.log(props.singlePost.id, props.item.id)
+                }}
+                className="hover:scale-150"
+                src="./images/arrow-up-circle.svg"
+              ></img>
             </div>
             <ParagraphText className="text-lg text-white font-normal mt-6">
               {props.item.vote}
             </ParagraphText>
             <div className="mt-6">
-              <img src="./images/arrow-down-circle.svg"></img>
+              <img
+                onClick={() => {
+                  downVote(props.singlePost.id, props.item.id);
+                  // console.log(props.singlePost.id, props.item.id)
+                }}
+                className="hover:scale-150"
+                src="./images/arrow-down-circle.svg"
+              ></img>
             </div>
           </div>
         </div>
