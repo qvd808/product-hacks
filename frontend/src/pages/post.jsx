@@ -1,7 +1,7 @@
-import { ParagraphText, SectionHeader } from "@/app/components/Common";
-import Link from "next/link";
+import { ParagraphText, SectionHeader } from "../components/Common";
+// import Link from "next/link";
 
-export default function main() {
+export default function Post() {
   return (
     <main className="min-h-screen flex-col  p-[5%] bg-white">
       {/* Header */}
@@ -18,7 +18,7 @@ export default function main() {
       {/* Subheader*/}
       <div className="flex justify-between mt-8">
         {/* left */}
-        <Link href="/main">
+        <a href="/">
           {" "}
           <div className="flex mr-10">
             <img src="./images/left.svg"></img>
@@ -26,7 +26,7 @@ export default function main() {
               back
             </ParagraphText>
           </div>
-        </Link>
+        </a>
 
         {/* center */}
         <div>
@@ -43,12 +43,12 @@ export default function main() {
       </div>
       {/* Post Section*/}
       <div className="mt-3">
-        <ParagraphText className="text-3xl leading-[115%]">
+        <ParagraphText className="!text-3xl leading-[115%] text-start">
           The craziest things you can do with $5.50 CAD.
         </ParagraphText>
         {/* Post Sort */}
         <div className="mt-[18px] flex justify-between">
-          <div className="bg-[#5D5AAF] rounded-md py-1 px-9">
+          <div className="bg-[#5D5AFF] rounded-md py-1 px-9">
             <ParagraphText className="uppercase text-white">
               Popular
             </ParagraphText>

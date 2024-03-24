@@ -1,14 +1,14 @@
-import { ParagraphText, SectionHeader } from "@/app/components/Common";
-import Link from "next/link";
+import { ParagraphText, SectionHeader } from "../components/Common";
+// import Link from "next/link";
 
-export default function main() {
+export default function Home() {
   return (
     <main className="min-h-screen flex-col bg-white  ">
       <div className="p-[5%] bg-white">
         {/* Header */}
         <div className="flex justify-between">
           {/* left */}
-          <SectionHeader className="text-dmsans-italic uppercase text-black font-bold ">
+          <SectionHeader className="text-dmsans italic uppercase text-black font-bold ">
             Chomp
           </SectionHeader>
           {/* right */}
@@ -23,27 +23,27 @@ export default function main() {
         {/* Post Section*/}
         <div className="mt-3">
           <div className="flex justify-between items-center">
-            <ParagraphText className="text-3xl leading-[115%]">
+            <ParagraphText className="!text-3xl leading-[115%] text-start">
               The craziest things you can do with $5.50 CAD.
             </ParagraphText>
-            <Link href="/post">
+            <a href="/post">
               {" "}
               <div className="flex flex-col justify-center self-center align-middle">
-                <div className="bg-[#5D5AAF] py-[8px] px-[0.5px] rounded-lg">
+                <div className="bg-[#5D5AFF] py-[8px] px-[0.5px] rounded-lg">
                   <img
                     className="w-[65px]"
                     src="./images/chevron-right.svg"
                   ></img>
                 </div>
               </div>
-            </Link>
+            </a>
           </div>
 
           {/* User + location */}
           <div className="mt-5 flex justify-between">
             {/* left */}
             <div className="flex">
-              <ParagraphText className="text-slate-400 mr-1">
+              <ParagraphText className=" text-slate-400 mr-1">
                 By BabyBottom
               </ParagraphText>
               <img src="./images/star.svg"></img>
@@ -107,9 +107,11 @@ export default function main() {
         {/* Second post  */}
         <div className="">
           <div className="px-[5%] py-[1.5%]">
-            <ParagraphText className="uppercase">Popular</ParagraphText>
+            <ParagraphText className="uppercase text-start">
+              Popular
+            </ParagraphText>
             <div className="flex items-center justify-between">
-              <ParagraphText className="text-xl w-[60%] mt-3">
+              <ParagraphText className="text-xl w-[60%] mt-3 text-start">
                 Let the yearly flying ant posts begin
               </ParagraphText>
               <img
@@ -150,10 +152,10 @@ export default function main() {
         {/* Third Post */}
         <div className="mt-1 px-[5%]">
           <div className="flex justify-between items-center">
-            <ParagraphText className="text-xl leading-[115%]">
+            <ParagraphText className="text-xl leading-[115%] text-start">
               Show us where you and your ex broke up.
             </ParagraphText>
-            <Link href="/post">
+            <a href="/post">
               {" "}
               <div className="flex items-center justify-between">
                 <img
@@ -161,7 +163,7 @@ export default function main() {
                   src="./images/chevron-right-black.svg"
                 ></img>
               </div>
-            </Link>
+            </a>
           </div>
 
           {/* User + location */}
