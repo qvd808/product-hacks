@@ -8,7 +8,6 @@ import Notification from "./pages/notification";
 import Profile from "./pages/profile";
 import BottomNavigationBar from "./BottomNavigationBar";
 import Test from "./pages/Test";
-import Notification from "./pages/Notification";
 
 function App() {
   return (
