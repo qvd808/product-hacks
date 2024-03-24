@@ -9,6 +9,7 @@ import Profile from "./pages/profile";
 import BottomNavigationBar from "./BottomNavigationBar";
 import Test from "./pages/Test";
 import Post2 from "./pages/post2";
+import PostAPost from "./pages/postAPost";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/test" element={<Test />} />
             <Route path="/post2" element={<Post2 />} />
+            <Route path="/postApost" element={<PostAPost />} />
           </Routes>
         </main>
         <BottomNavigationBar></BottomNavigationBar>

@@ -5,7 +5,9 @@ import PromptTemplate from "../components/promptTemplate";
 import { API, data } from "../const";
 // import Link from "next/link";
 
+
 export default function Post() {
+  
   const [prompts, setPrompts] = useState([]);
 
   const getData = async () => {
