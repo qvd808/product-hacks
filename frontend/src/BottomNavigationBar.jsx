@@ -90,7 +90,7 @@ const BottomNavigationBar = () => {
     <div className="">
       <button onClick={openPopup}>
         {" "}
-        {locat.pathname === "/post" || "/post2" ? (
+        {locat.pathname === "/post" || locat.pathname === "/post2" ? (
           <div className="fixed bottom-20 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
             {" "}
             <div className="flex justify-center items-center w-[300px] h-[40px] bg-[#5D5AFF] rounded-lg">
