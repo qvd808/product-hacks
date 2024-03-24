@@ -1,29 +1,7 @@
 import { ParagraphText, SectionHeader } from "../components/Common";
 // import Link from "next/link";
-import { useEffect, useState } from "react";
-
 
 export default function Home() {
-  const [prompts, setPrompts] = useState([]);
-
-  const getData = async () => {
-    // const response = await fetch(`${API}/prompt`);
-    // const data = await response.json();
-    // console.log(data);
-    setPrompts([
-      {
-        id: "1",
-        data: {
-          topic: "What's your favorite food?",
-        },
-      },
-    ]);
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
-
   return (
     <main className="min-h-screen flex-col bg-white  ">
       <div className="p-[5%] bg-white">
@@ -65,10 +43,9 @@ export default function Home() {
           <div className="mt-5 flex justify-between">
             {/* left */}
             <div className="flex flex-row w-[100%]">
-            <div className="flex flex-row w-[100%]">
               <ParagraphText className=" text-slate-400 mr-1">
                 By BabyBottom
-              </ParagraphText> 
+              </ParagraphText>
               <img src="./images/star.svg"></img>
             </div>
             {/* right */}
@@ -241,7 +218,6 @@ export default function Home() {
             <div>
               <ParagraphText className="text-md">
                 Fun day on Grouse
-
               </ParagraphText>
             </div>
             {/* right */}

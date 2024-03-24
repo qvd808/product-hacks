@@ -19,6 +19,7 @@ function App() {
             <Route path="/post" element={<Post />} />
             <Route path="/search" element={<Search />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/test" element={<Test />} />
           </Routes>
         </main>
         <BottomNavigationBar></BottomNavigationBar>
